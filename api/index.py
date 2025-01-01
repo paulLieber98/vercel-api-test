@@ -1,5 +1,6 @@
 from http.server import BaseHTTPRequestHandler
-from json import dumps
+from datetime import datetime
+import json
 
 def handler(request):
     return {
@@ -7,7 +8,8 @@ def handler(request):
         "headers": {
             "Content-Type": "application/json"
         },
-        "body": dumps({
-            "message": "Hello from Vercel!"
+        "body": json.dumps({
+            "message": "Hello from Vercel!",
+            "timestamp": datetime.now().isoformat()
         })
     } 

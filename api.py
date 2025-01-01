@@ -3,17 +3,16 @@ from datetime import datetime
 
 app = FastAPI()
 
-@app.get("/api")
-async def read_root():
+@app.get("/")
+async def root():
     return {
         "message": "Hello from Vercel!",
         "timestamp": datetime.now().isoformat()
     }
 
-@app.get("/api/{path:path}")
-async def read_path(path: str):
+@app.get("/api")
+async def api():
     return {
-        "message": "Hello from Vercel!",
-        "path": path,
+        "message": "Hello from API endpoint!",
         "timestamp": datetime.now().isoformat()
     } 
